@@ -2,16 +2,17 @@ import React, {ButtonHTMLAttributes} from 'react';
 import './button.css';
 
 
-interface ButtonProps {
+export interface ButtonProps {
 	clickHandler?: () => void;
-	name: string;
+	description: string;
+	testID?: string;
 	type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }
 
-function Button({clickHandler, name, type}: ButtonProps) {
+function Button({clickHandler, description, testID, type}: ButtonProps) {
 
 	return (
-		<button className={'button'} onChange={clickHandler} type={type}>{name}</button>
+		<button className={'button'} data-testid={testID} onClick={clickHandler} type={type}>{description}</button>
 	);
 }
 

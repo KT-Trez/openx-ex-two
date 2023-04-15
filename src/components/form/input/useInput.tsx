@@ -1,14 +1,14 @@
 import React, {ChangeEvent, useState} from 'react';
 
 
-function useInput(): [string | number | undefined, (event: ChangeEvent<HTMLInputElement>) => void] {
-	const [value, setValue] = useState<string | number>();
+function useInput(defaultValue: string | number): [string | number, (event: ChangeEvent<HTMLInputElement>) => void] {
+	const [value, setValue] = useState<string | number>(defaultValue);
 
-	const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
 	};
 
-	return [value, handleInput];
+	return [value, onChange];
 }
 
 export default useInput;

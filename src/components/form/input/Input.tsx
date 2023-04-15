@@ -2,27 +2,32 @@ import React, {ChangeEvent, HTMLInputTypeAttribute} from 'react';
 import './input.css';
 
 
-interface InputProps {
+export interface InputProps {
 	changeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
+	id: string;
 	label?: string;
+	name: string;
 	placeholder?: string;
 	type?: HTMLInputTypeAttribute;
-	value: number | string | undefined;
+	value: number | string;
 }
 
-function Input({changeHandler, label, placeholder, type, value}: InputProps) {
-
+function Input({changeHandler, id, label, name, placeholder, type, value}: InputProps) {
 	return (
 		<div className={'input-wrapper'}>
 			{label &&
-				<label className={'input-label'} inputMode={'email'}>{label}</label>
+				<label className={'input-label'}
+				       data-testid={'input-label'}
+				       htmlFor={id}
+				       inputMode={'email'}>{label}</label>
 			}
-			<input
-				className={'input'}
-				onChange={changeHandler}
-				value={value}
-				placeholder={placeholder}
-				type={type}
+			<input className={'input'}
+			       id={id}
+			       name={name}
+			       onChange={changeHandler}
+			       placeholder={placeholder}
+			       type={type}
+			       value={value}
 			/>
 		</div>
 	);
