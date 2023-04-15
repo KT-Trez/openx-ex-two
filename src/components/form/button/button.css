@@ -1,0 +1,14 @@
+.button {
+    color: #FFFFFF;
+    background-color: #03A9F4;
+    font-size: max(2vh, 18px);
+    border: 2px solid transparent;
+    border-radius: 5px;
+    padding: 7px;
+    margin-block: 10px;
+}
+
+.button:active {
+    transform: translateY(2px);
+    transition-duration: 100ms;
+}

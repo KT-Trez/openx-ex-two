@@ -1,0 +1,10 @@
+.login-description {
+    font-size: max(2.5vh, 16px);
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.login-title {
+    font-size: max(4.5vh, 30px);
+    margin-top: 25px;
+}
