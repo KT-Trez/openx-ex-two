@@ -35,6 +35,9 @@ describe('<Login/>', () => {
 	it('should load data into form', () => {
 		setup();
 
+		// userEvent.type(passwordInput, correctUser.password);
+		// userEvent.type(usernameInput, correctUser.username);
+
 		fireEvent.change(passwordInput, {
 			target: {
 				value: correctUser.password
@@ -50,5 +53,54 @@ describe('<Login/>', () => {
 			username: correctUser.username,
 			password: correctUser.password
 		});
+	});
+
+	it('should correctly sign in using form', () => {
+		setup();
+
+		fireEvent.change(passwordInput, {
+			target: {
+				value: correctUser.password
+			}
+		});
+		fireEvent.change(usernameInput, {
+			target: {
+				value: correctUser.username
+			}
+		});
+		fireEvent.click(signInButton);
+
+		expect(screen.getByText(/logged.*in/i)).toBeInTheDocument();
+	});
+
+	it('should display error about empty username', () => {
+		setup();
+
+		fireEvent.change(passwordInput, {
+			target: {
+				value: correctUser.password
+			}
+		});
+		fireEvent.click(signInButton);
+
+		expect(screen.getByText(/username.*required/i)).toBeInTheDocument();
+	});
+
+	it('should display error about incorrect password', () => {
+		setup();
+
+		fireEvent.change(usernameInput, {
+			target: {
+				value: correctUser.username
+			}
+		});
+		fireEvent.change(passwordInput, {
+			target: {
+				value: 'WRONG_PASSWORD'
+			}
+		});
+		fireEvent.click(signInButton);
+
+		expect(screen.getByText(/incorrect.*password/i)).toBeInTheDocument();
 	});
 });

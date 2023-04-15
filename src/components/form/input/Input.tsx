@@ -3,16 +3,16 @@ import './input.css';
 
 
 export interface InputProps {
-	changeHandler: (event: ChangeEvent<HTMLInputElement>) => void;
 	id: string;
 	label?: string;
 	name: string;
+	onChangeText: (event: ChangeEvent<HTMLInputElement>) => void;
 	placeholder?: string;
 	type?: HTMLInputTypeAttribute;
 	value: number | string;
 }
 
-function Input({changeHandler, id, label, name, placeholder, type, value}: InputProps) {
+function Input({id, label, name, onChangeText, placeholder, type, value}: InputProps) {
 	return (
 		<div className={'input-wrapper'}>
 			{label &&
@@ -24,11 +24,10 @@ function Input({changeHandler, id, label, name, placeholder, type, value}: Input
 			<input className={'input'}
 			       id={id}
 			       name={name}
-			       onChange={changeHandler}
+			       onChange={onChangeText}
 			       placeholder={placeholder}
 			       type={type}
-			       value={value}
-			/>
+			       value={value}/>
 		</div>
 	);
 }

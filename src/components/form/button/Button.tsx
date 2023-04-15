@@ -3,16 +3,16 @@ import './button.css';
 
 
 export interface ButtonProps {
-	clickHandler?: () => void;
 	description: string;
+	onClick?: () => void;
 	testID?: string;
 	type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
 }
 
-function Button({clickHandler, description, testID, type}: ButtonProps) {
+function Button({onClick, description, testID, type}: ButtonProps) {
 
 	return (
-		<button className={'button'} data-testid={testID} onClick={clickHandler} type={type}>{description}</button>
+		<button className={'button'} data-testid={testID} onClick={onClick} type={type}>{description}</button>
 	);
 }
 

@@ -1,19 +1,28 @@
 .input {
-    font-size: max(2vh, 16px);
-    border: 2px solid white;
-    border-radius: 5px;
-    min-width: 300px;
-    padding: 5px;
+	font-size: max(2vh, 16px);
+	border: 2px solid white;
+	border-radius: 5px;
+	min-width: 300px;
+	padding: 5px;
 }
 
 .input-label {
-    font-size: max(2.5vh, 18px);
-    margin-bottom: 5px;
+	font-size: max(2.5vh, 18px);
+	margin-bottom: 5px;
+}
+
+.login-status {
+	color: #0288D1;
+	font-size: max(2vh, 16px);
+}
+
+.login-status--error {
+	color: #d84315;
 }
 
 .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-block: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-block: 10px;
 }

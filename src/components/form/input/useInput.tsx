@@ -1,10 +1,10 @@
-import React, {ChangeEvent, useState} from 'react';
+import {useState} from 'react';
 
 
-function useInput(defaultValue: string | number): [string | number, (event: ChangeEvent<HTMLInputElement>) => void] {
-	const [value, setValue] = useState<string | number>(defaultValue);
+function useInput(defaultValue: string): [string, (event: { target: { value: string } }) => void] {
+	const [value, setValue] = useState<string>(defaultValue);
 
-	const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+	const onChange = (event: { target: { value: string } }) => {
 		setValue(event.target.value);
 	};
 

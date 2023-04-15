@@ -14,7 +14,7 @@ describe('<Input/>', () => {
 		handleInput = jest.fn();
 
 		inputProps = {
-			changeHandler: handleInput,
+			onChangeText: handleInput,
 			id: 'custom-input',
 			label: noLabel ? undefined : 'Mock input',
 			name: 'customInput',
@@ -24,7 +24,7 @@ describe('<Input/>', () => {
 		};
 
 		render(
-			<Input changeHandler={handleInput}
+			<Input onChangeText={handleInput}
 			       id={inputProps.id}
 			       label={inputProps.label}
 			       name={inputProps.name}

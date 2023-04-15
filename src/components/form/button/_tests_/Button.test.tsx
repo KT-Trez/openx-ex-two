@@ -12,13 +12,13 @@ describe('<Button/>', () => {
 	const setup = () => {
 		handleClick = jest.fn();
 		buttonProps = {
-			clickHandler: handleClick,
+			onClick: handleClick,
 			description: 'Hello button',
 			type: 'button'
 		};
 
 		render(
-			<Button clickHandler={buttonProps.clickHandler}
+			<Button onClick={buttonProps.onClick}
 			        description={buttonProps.description}
 			        type={buttonProps.type}/>
 		);
